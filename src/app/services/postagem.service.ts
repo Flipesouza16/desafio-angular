@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpResponse } from "src/data/protocols/http/http-response";
-import { HttpClientService } from "src/infra/http-client";
+import { HttpClientService } from "src/infra/http-client-service";
 import { Postagem } from "../components/postagens/interfaces/postagem";
 
 @Injectable({
@@ -11,6 +11,6 @@ export class PostagemService {
   constructor(private httpClientService: HttpClientService) {}
 
   async getPosts(): Promise<HttpResponse<Postagem[]>> {
-    return this.httpClientService.get({ url: 'https://jsonplaceholder.typicode.com/posts' });
+    return this.httpClientService.get({ url: 'posts' });
   }
 }
