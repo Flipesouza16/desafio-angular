@@ -3,7 +3,6 @@ import { HttpResponse } from "./http-response";
 export type HttpParams<T> = {
   url: string
   body?: T
-  type_response?: T
 }
 
 export interface HttpGetClient<T, R> {
