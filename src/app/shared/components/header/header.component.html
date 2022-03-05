@@ -1,6 +1,25 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Custom Toolbar</span>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
-  </mat-toolbar-row>
-</mat-toolbar>
+<header>
+  <mat-toolbar color="basic">
+    <mat-toolbar-row>
+      <span class="title-header">{{ titlePage }}</span>
+      <div class="menu-itens">
+        <button mat-stroked-button color="basic" (click)="selectPage(listPages.postagens)">
+          <mat-icon>local_post_office</mat-icon
+          >Postagens
+        </button>
+        <button mat-stroked-button color="basic" (click)="selectPage(listPages.albuns)">
+          <mat-icon>album</mat-icon>Albuns
+        </button>
+        <button mat-stroked-button color="basic" (click)="selectPage(listPages.todos)">
+          <mat-icon>schedule</mat-icon>TO-DOs
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-toolbar>
+    <mat-form-field appearance="fill">
+      <mat-label>{{ titlePage }}</mat-label>
+      <input matInput placeholder="Ex. Pizza" />
+    </mat-form-field>
+  </mat-toolbar>
+</header>
