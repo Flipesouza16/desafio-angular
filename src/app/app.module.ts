@@ -8,6 +8,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientService } from 'src/infra/http-client-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatIconModule, MatToolbarModule } from '@angular/material';
+import { ComponentsModule } from './shared/components/components.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    ComponentsModule
   ],
   providers: [HttpClientService, HttpClient],
   bootstrap: [AppComponent]
