@@ -1,18 +1,26 @@
 <header>
   <mat-toolbar color="basic">
     <mat-toolbar-row>
-      <span class="title-header">{{ titlePage }}</span>
-      <div class="menu-itens">
-        <button mat-stroked-button color="basic" (click)="selectPage(listTypePages.postagens)">
-          <mat-icon>local_post_office</mat-icon
-          >Postagens
-        </button>
-        <button mat-stroked-button color="basic" (click)="selectPage(listTypePages.albuns)">
-          <mat-icon>album</mat-icon>Albuns
-        </button>
-        <button mat-stroked-button color="basic" (click)="selectPage(listTypePages.todos)">
-          <mat-icon>schedule</mat-icon>TO-DOs
-        </button>
+      <div class="title-menu-items">
+        <span class="title-header">{{ titlePage }}</span>
+        <div class="menu-itens" *ngIf="!isScreenSmall">
+          <button mat-stroked-button color="basic" (click)="selectPage(listTypePages.postagens)">
+            <mat-icon>local_post_office</mat-icon
+            >Postagens
+          </button>
+          <button mat-stroked-button color="basic" (click)="selectPage(listTypePages.albuns)">
+            <mat-icon>album</mat-icon>Albuns
+          </button>
+          <button mat-stroked-button color="basic" (click)="selectPage(listTypePages.todos)">
+            <mat-icon>schedule</mat-icon>TO-DOs
+          </button>
+        </div>
+        <mat-icon class="menu-itens-small" *ngIf="isScreenSmall" [matMenuTriggerFor]="menu">menu</mat-icon>
+        <mat-menu #menu="matMenu">
+          <ng-template ngFor let-page [ngForOf]="getArrayPages">
+            <button mat-menu-item (click)="selectPage(page.slug)">{{ page.name }}</button>
+          </ng-template>
+        </mat-menu>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
