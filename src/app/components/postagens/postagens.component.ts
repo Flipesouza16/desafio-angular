@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostagemService } from '@/app/services';
+import { Postagem } from './interfaces/postagem';
 
 @Component({
   selector: 'app-postagens',
@@ -7,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostagensComponent implements OnInit {
 
-  constructor() { }
+  public posts: Postagem[];
+
+  constructor(private postagemService: PostagemService) { }
 
   async ngOnInit() {
-
+    const { body: posts } = await this.postagemService.getPosts();
+    this.posts = posts;
   }
 
 }

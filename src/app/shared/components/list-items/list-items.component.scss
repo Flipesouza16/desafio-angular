@@ -1,0 +1,31 @@
+.list-item {
+  margin-top: 30px;
+
+  .item {
+    background-color: #0000000a;
+    margin: 10px;
+    margin: auto;
+    max-width: 95%;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: start;
+    height: auto;
+
+    .item-info {
+      display: flex;
+      flex-direction: column;
+
+      .item-title {
+        font-size: 19px;
+        color: #5a5a5a;
+        font-weight: bold;
+      }
+
+      .item-body {
+        color: #3d3d3d;
+        font-size: 16px;
+      }
+    }
+  }
+}
