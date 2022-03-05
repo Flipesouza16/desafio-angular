@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { HttpResponse } from "src/data/protocols/http/http-response";
-import { HttpClientService } from "src/infra/http-client-service";
-import { Postagem } from "../components/postagens/interfaces/postagem";
+import { HttpResponse } from "@/data/protocols/http";
+import { HttpClientService } from "@/infra/http-client-service";
+import { Postagem } from "@/app/components/postagens/interfaces/postagem";
 
 @Injectable({
   providedIn: 'root',

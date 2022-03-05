@@ -1,4 +1,4 @@
-import { ListPagesModel } from "../interfaces/pagesModel";
+import { ListPagesModel } from "../interfaces";
 
 export const listPages: ListPagesModel = {
   postagens: { name: 'Postagens', slug: 'postagens' },

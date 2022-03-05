@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ListPagesModel, ListTypePages } from '../../interfaces/pagesModel';
-import { listPages } from '../../utils/listPages';
+import { ListPagesModel, ListTypePages } from '../../interfaces';
+import { listPages } from '../../utils';
 
 @Component({
   selector: 'app-header',
