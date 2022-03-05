@@ -1,1 +1,1 @@
-export * from './pagesModel';
+export * from './pages-model';

@@ -1,1 +1,1 @@
-export * from './listPages';
+export * from './list-pages';
