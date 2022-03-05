@@ -8,7 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientService } from 'src/infra/http-client-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatIconModule, MatToolbarModule } from '@angular/material';
+import { MatIconModule, MatListModule, MatToolbarModule } from '@angular/material';
 import { ComponentsModule } from './shared/components/components.module';
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { ComponentsModule } from './shared/components/components.module';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
+    MatListModule,
     ComponentsModule
   ],
   providers: [HttpClientService, HttpClient],
