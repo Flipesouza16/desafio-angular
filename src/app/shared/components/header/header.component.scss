@@ -1,0 +1,34 @@
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 78px;
+}
+
+.title-header {
+  margin-left: 5px;
+}
+
+.menu-itens {
+  display: flex;
+  flex-direction: row;
+  right: 0;
+  position: fixed;
+  margin-right: 20%;
+
+  button {
+    margin-right: 10px;
+    align-items: center;
+
+    mat-icon {
+      margin-right: 5px;
+    }
+  }
+}
+
+mat-form-field {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 17px
+}
