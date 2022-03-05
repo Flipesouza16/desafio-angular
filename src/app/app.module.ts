@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PostagensComponent } from './components/postagens/postagens.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientService } from 'src/infra/http-client-service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientService } from 'src/infra/http-client-service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [HttpClientService, HttpClient],
   bootstrap: [AppComponent]
