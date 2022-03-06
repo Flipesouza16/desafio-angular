@@ -1,4 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ListPagesModel, ListTypePages, PageModel } from '../../interfaces';
 import { listPages } from '../../utils';
 
@@ -8,13 +9,17 @@ import { listPages } from '../../utils';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input('title-slug') titleSlug: string;
+
   public listTypePages = ListTypePages;
   public pages: ListPagesModel = listPages;
   public titlePage: string;
   public screenWidth: number = document.documentElement.clientWidth;
 
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
-    this.titlePage = this.pages[this.listTypePages.postagens].name;
+    this.titlePage = this.pages[this.titleSlug].name;
   }
 
   get listPages() {
@@ -29,7 +34,7 @@ export class HeaderComponent implements OnInit {
   }
 
   selectPage(page: string): void {
-    this.titlePage = this.pages[page].name;
+    this.router.navigate([page]);
   }
 
   get isScreenSmall(): boolean {

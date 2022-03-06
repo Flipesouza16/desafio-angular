@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostagemService } from '@/app/services';
 import { Postagem } from './interfaces/postagem';
+import { ListTypePages } from '@/app/shared/interfaces';
 
 @Component({
   selector: 'app-postagens',
@@ -8,7 +9,7 @@ import { Postagem } from './interfaces/postagem';
   styleUrls: ['./postagens.component.scss']
 })
 export class PostagensComponent implements OnInit {
-
+  public listTypePages = ListTypePages;
   public posts: Postagem[];
 
   constructor(private postagemService: PostagemService) { }
