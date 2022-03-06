@@ -6,7 +6,7 @@
       <div class="item-info">
         <span class="item-title">{{ item.title }}</span>
         <span class="item-body">{{ item?.body }}</span>
-        <span class="item-body">{{ item?.completed ? 'Completo' : 'Não completo' }}</span>
+        <span class="item-body" *ngIf="pageSlug === listaTypePages.todos">{{ item?.completed ? 'Completo' : 'Não completo' }}</span>
       </div>
     </mat-list-item>
   </ng-template>

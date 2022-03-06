@@ -1,4 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { ListTypePages } from '../../interfaces';
 import { ListItems } from '../../interfaces/list-items';
 
 @Component({
@@ -8,7 +9,9 @@ import { ListItems } from '../../interfaces/list-items';
 })
 export class ListItemsComponent {
   @Input() items: ListItems[] = [];
+  @Input('page-slug') pageSlug: string;
 
+  public listaTypePages = ListTypePages;
   public listItems: ListItems[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
