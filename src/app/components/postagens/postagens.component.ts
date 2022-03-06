@@ -1,20 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { BuscarService } from '@/app/shared/services';
-import { PostagemService } from './services'
-import { Postagem } from './interfaces';
-import { ListTypePages } from '@/app/shared/interfaces';
+import { Component, OnInit } from "@angular/core";
+import { BuscarService } from "@/app/shared/services";
+import { PostagemService } from "./services";
+import { Postagem } from "./interfaces";
+import { ListTypePages } from "@/app/shared/interfaces";
+import { UtilsService } from "@/app/shared/services/utils.service";
 
 @Component({
-  selector: 'app-postagens',
-  templateUrl: './postagens.component.html',
-  styleUrls: ['./postagens.component.scss']
+  selector: "app-postagens",
+  templateUrl: "./postagens.component.html",
+  styleUrls: ["./postagens.component.scss"],
 })
 export class PostagensComponent implements OnInit {
   public listTypePages = ListTypePages;
   public posts: Postagem[];
   public isLoading = false;
 
-  constructor(private postagemService: PostagemService, private buscarService: BuscarService) { }
+  constructor(
+    private postagemService: PostagemService,
+    private buscarService: BuscarService,
+    private utilsService: UtilsService,
+  ) {}
 
   async ngOnInit(): Promise<void> {
     await this.getPosts();
@@ -27,8 +32,12 @@ export class PostagensComponent implements OnInit {
       const { body: posts } = response;
       this.posts = posts;
       this.buscarService.setFullList(posts);
-    } catch(error) {
+    } catch (error) {
       console.error(error);
+      this.utilsService.openSnackBar(
+        "Erro inesperado ao buscar por Postagens",
+        "FECHAR"
+      );
     } finally {
       this.isLoading = false;
     }
@@ -37,5 +46,4 @@ export class PostagensComponent implements OnInit {
   searchedItem(term: string): void {
     this.posts = this.buscarService.searchOptions(term) as Postagem[];
   }
-
 }
