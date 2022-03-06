@@ -1,5 +1,5 @@
-import { Postagem } from '@/app/components/postagens/interfaces/postagem';
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { ListItems } from '../../interfaces/list-items';
 
 @Component({
   selector: 'app-list-items',
@@ -7,11 +7,13 @@ import { Component, Input, SimpleChanges } from '@angular/core';
   styleUrls: ['./list-items.component.scss']
 })
 export class ListItemsComponent {
-  @Input() items: Postagem[];
+  @Input() items: ListItems[] = [];
+
+  public listItems: ListItems[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.items) {
-      this.items = changes.items.currentValue as Postagem[];
+      this.listItems = changes.items.currentValue;
     }
   }
 

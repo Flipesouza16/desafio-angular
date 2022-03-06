@@ -1,5 +1,6 @@
 <mat-list class="list-item">
-  <ng-template ngFor let-item [ngForOf]="items">
+  <mat-spinner class="spinner" *ngIf="!listItems?.length"></mat-spinner>
+  <ng-template ngFor let-item [ngForOf]="listItems">
     <mat-list-item class="item">
       <div class="item-info">
         <span class="item-title">{{ item?.title }}</span>
