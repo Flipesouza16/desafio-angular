@@ -33,8 +33,7 @@ export class TodosComponent implements OnInit {
     }
   }
 
-  searchedItem(term: string) {
-    const filteredList = this.buscarService.searchOptions(term) as Todo[];
-    this.todos = filteredList;
+  searchedItem(term: string): void {
+    this.todos = this.buscarService.searchOptions(term) as Todo[];
   }
 }

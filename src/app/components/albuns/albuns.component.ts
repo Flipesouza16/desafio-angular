@@ -33,8 +33,7 @@ export class AlbunsComponent implements OnInit {
     }
   }
 
-  searchedItem(term) {
-    const filteredList = this.buscarService.searchOptions(term) as Album[];
-    this.albuns = filteredList;
+  searchedItem(term: string): void {
+    this.albuns = this.buscarService.searchOptions(term) as Album[];
   }
 }

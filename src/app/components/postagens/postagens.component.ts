@@ -34,9 +34,8 @@ export class PostagensComponent implements OnInit {
     }
   }
 
-  searchedItem(term) {
-    const filteredList = this.buscarService.searchOptions(term) as Postagem[];
-    this.posts = filteredList;
+  searchedItem(term: string): void {
+    this.posts = this.buscarService.searchOptions(term) as Postagem[];
   }
 
 }
