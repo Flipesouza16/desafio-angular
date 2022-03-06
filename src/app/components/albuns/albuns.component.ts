@@ -16,7 +16,11 @@ export class AlbunsComponent implements OnInit {
 
   constructor(private albumService: AlbumService, private buscarService: BuscarService) { }
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
+    await this.getAlbuns();
+  }
+
+  async getAlbuns(): Promise<void> {
     this.isLoading = true;
     try {
       const { body: albuns } = await this.albumService.getAlbums();

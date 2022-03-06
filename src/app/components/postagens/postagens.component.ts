@@ -16,7 +16,11 @@ export class PostagensComponent implements OnInit {
 
   constructor(private postagemService: PostagemService, private buscarService: BuscarService) { }
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
+    await this.getPosts();
+  }
+
+  async getPosts(): Promise<void> {
     this.isLoading = true;
     try {
       const response = await this.postagemService.getPosts();

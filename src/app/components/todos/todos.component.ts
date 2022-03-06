@@ -16,7 +16,11 @@ export class TodosComponent implements OnInit {
 
   constructor(private todoService: TodosService, private buscarService: BuscarService) { }
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
+   await this.getTodos();
+  }
+
+  async getTodos(): Promise<void> {
     this.isLoading = true;
     try {
       const { body: todos } = await this.todoService.getTodos();
@@ -29,7 +33,7 @@ export class TodosComponent implements OnInit {
     }
   }
 
-  searchedItem(term) {
+  searchedItem(term: string) {
     const filteredList = this.buscarService.searchOptions(term) as Todo[];
     this.todos = filteredList;
   }
