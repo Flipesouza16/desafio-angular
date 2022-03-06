@@ -4,6 +4,7 @@
   .spinner {
     width: 100%;
     margin: auto;
+    margin-top: 200px;
   }
 
   .item {
@@ -38,4 +39,10 @@
       }
     }
   }
+}
+
+.error-finding-items {
+  margin-top: 200px; display: flex;
+  justify-content: center;
+  font-size: 21px;
 }

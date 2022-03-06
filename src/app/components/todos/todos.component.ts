@@ -11,13 +11,21 @@ import { Todo } from './interfaces/todos';
 export class TodosComponent implements OnInit {
   public listTypePages = ListTypePages;
   public todos: Todo[];
+  public isLoading = false;
 
   constructor(private todoService: TodosService, private buscarService: BuscarService) { }
 
   async ngOnInit() {
-    const { body: todos } = await this.todoService.getTodos();
-    this.todos = todos;
-    this.buscarService.setFullList(todos);
+    this.isLoading = true;
+    try {
+      const { body: todos } = await this.todoService.getTodos();
+      this.todos = todos;
+      this.buscarService.setFullList(todos);
+    } catch(error) {
+      console.error(error);
+    } finally {
+      this.isLoading = false;
+    }
   }
 
   searchedItem(term) {

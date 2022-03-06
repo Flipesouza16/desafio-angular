@@ -11,13 +11,22 @@ import { ListTypePages } from '@/app/shared/interfaces';
 export class PostagensComponent implements OnInit {
   public listTypePages = ListTypePages;
   public posts: Postagem[];
+  public isLoading = false;
 
   constructor(private postagemService: PostagemService, private buscarService: BuscarService) { }
 
   async ngOnInit() {
-    const { body: posts } = await this.postagemService.getPosts();
-    this.posts = posts;
-    this.buscarService.setFullList(posts);
+    this.isLoading = true;
+    try {
+      const response = await this.postagemService.getPosts();
+      const { body: posts } = response;
+      this.posts = posts;
+      this.buscarService.setFullList(posts);
+    } catch(error) {
+      console.error(error);
+    } finally {
+      this.isLoading = false;
+    }
   }
 
   searchedItem(term) {

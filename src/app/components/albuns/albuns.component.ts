@@ -11,13 +11,21 @@ import { Album } from './interfaces/album';
 export class AlbunsComponent implements OnInit {
   public listTypePages = ListTypePages;
   public albuns: Album[];
+  public isLoading = false;
 
   constructor(private albumService: AlbumService, private buscarService: BuscarService) { }
 
   async ngOnInit() {
-    const { body: albuns } = await this.albumService.getAlbums();
-    this.albuns = albuns;
-    this.buscarService.setFullList(albuns);
+    this.isLoading = true;
+    try {
+      const { body: albuns } = await this.albumService.getAlbums();
+      this.albuns = albuns;
+      this.buscarService.setFullList(albuns);
+    } catch(error) {
+      console.error(error);
+    } finally {
+      this.isLoading = false;
+    }
   }
 
   searchedItem(term) {

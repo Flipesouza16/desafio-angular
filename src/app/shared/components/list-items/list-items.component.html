@@ -1,13 +1,26 @@
 <mat-list class="list-item">
-  <mat-spinner class="spinner" *ngIf="!listItems?.length"></mat-spinner>
-  <ng-template ngFor let-item [ngForOf]="listItems">
+  <mat-spinner
+    class="spinner"
+    *ngIf="!listItems?.length && isLoading"
+  ></mat-spinner>
+  <ng-template *ngIf="!isLoading" ngFor let-item [ngForOf]="listItems">
     <mat-list-item class="item">
-      <div class="id"> #{{ item.id }} </div>
+      <div class="id">#{{ item.id }}</div>
       <div class="item-info">
         <span class="item-title">{{ item.title }}</span>
         <span class="item-body">{{ item?.body }}</span>
-        <span class="item-body" *ngIf="pageSlug === listaTypePages.todos">{{ item?.completed ? 'Completo' : 'Não completo' }}</span>
+        <span class="item-body" *ngIf="pageSlug === listTypePages.todos">{{
+          item?.completed ? "Completo" : "Não completo"
+        }}</span>
       </div>
     </mat-list-item>
   </ng-template>
 </mat-list>
+
+<ng-template [ngIf]="!listItems?.length && !isLoading">
+  <span class="error-finding-items"
+    >{{ pages[pageSlug].name }} não encontra{{
+      pageSlug !== listTypePages.postagens ? "dos" : "das"
+    }}
+  </span>
+</ng-template>
