@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ListPagesModel, ListTypePages, PageModel } from '../../interfaces';
 import { listPages } from '../../utils';
 
@@ -7,13 +7,17 @@ import { listPages } from '../../utils';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   public listTypePages = ListTypePages;
-  public titlePage = 'Postagens';
   public pages: ListPagesModel = listPages;
-  public screenWidth = document.documentElement.clientWidth;
+  public titlePage: string;
+  public screenWidth: number = document.documentElement.clientWidth;
 
-  get getArrayPages() {
+  ngOnInit(): void {
+    this.titlePage = this.pages[this.listTypePages.postagens].name;
+  }
+
+  get listPages() {
     const listPageKeys = Object.keys(this.pages);
     let arrayPages: PageModel[] = [];
 
@@ -28,13 +32,13 @@ export class HeaderComponent {
     this.titlePage = this.pages[page].name;
   }
 
-  get isScreenSmall() {
+  get isScreenSmall(): boolean {
     if(this.screenWidth < 450) return true;
     else return false;
   }
 
   @HostListener("window:resize", [])
-  private onResize() {
+  private onResize(): void {
     this.screenWidth = document.documentElement.clientWidth;
   }
 }

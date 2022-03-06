@@ -17,7 +17,7 @@
         </div>
         <mat-icon class="menu-itens-small" *ngIf="isScreenSmall" [matMenuTriggerFor]="menu">menu</mat-icon>
         <mat-menu #menu="matMenu">
-          <ng-template ngFor let-page [ngForOf]="getArrayPages">
+          <ng-template ngFor let-page [ngForOf]="listPages">
             <button mat-menu-item (click)="selectPage(page.slug)">{{ page.name }}</button>
           </ng-template>
         </mat-menu>
