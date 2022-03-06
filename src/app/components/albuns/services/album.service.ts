@@ -1,16 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpResponse } from "@/data/protocols/http";
 import { HttpClientService } from "@/infra/http-client-service";
-import { Todo } from "../components/todos/interfaces/todos";
+import { Album } from "../interfaces/album";
 
 @Injectable({
   providedIn: 'root',
 })
-export class TodosService {
+export class AlbumService {
 
   constructor(private httpClientService: HttpClientService) {}
 
-  async getTodos(): Promise<HttpResponse<Todo[]>> {
-    return this.httpClientService.get({ url: 'todos' });
+  async getAlbums(): Promise<HttpResponse<Album[]>> {
+    return this.httpClientService.get({ url: 'albums' });
   }
 }

@@ -1,7 +1,8 @@
-import { BuscarService, TodosService } from '@/app/services';
+import { BuscarService } from '@/app/shared/services';
 import { ListTypePages } from '@/app/shared/interfaces';
 import { Component, OnInit } from '@angular/core';
-import { Todo } from './interfaces/todos';
+import { Todo } from './interfaces';
+import { TodosService } from './services';
 
 @Component({
   selector: 'app-todos',

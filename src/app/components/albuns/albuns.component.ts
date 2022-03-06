@@ -1,7 +1,8 @@
-import { AlbumService, BuscarService } from '@/app/services';
-import { ListTypePages } from '@/app/shared/interfaces';
 import { Component, OnInit } from '@angular/core';
-import { Album } from './interfaces/album';
+import { ListTypePages } from '@/app/shared/interfaces';
+import { Album } from './interfaces';
+import { BuscarService } from '@/app/shared/services';
+import { AlbumService } from './services';
 
 @Component({
   selector: 'app-albuns',

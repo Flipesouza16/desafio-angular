@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PostagemService, BuscarService } from '@/app/services';
-import { Postagem } from './interfaces/postagem';
+import { BuscarService } from '@/app/shared/services';
+import { PostagemService } from './services'
+import { Postagem } from './interfaces';
 import { ListTypePages } from '@/app/shared/interfaces';
 
 @Component({

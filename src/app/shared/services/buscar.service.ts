@@ -1,21 +1,21 @@
 import { Injectable } from "@angular/core";
-import { ListItems } from "../shared/interfaces/list-items";
+import { ListItems } from "../interfaces/list-items";
 
 @Injectable({
   providedIn: 'root',
 })
 export class BuscarService {
-  public completeList = [];
+  public completeList: ListItems[] = [];
 
   setFullList(lista: any): void {
     this.completeList = lista;
   }
 
-  resetFullList() {
-    this.completeList = []
+  resetFullList(): void {
+    this.completeList = [];
   }
 
-  checkIfIncludes(name: string, term: string) {
+  checkIfIncludes(name: string, term: string): boolean {
     return name.toLowerCase().includes(term.toLowerCase());
   }
 
