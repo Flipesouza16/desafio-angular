@@ -1,4 +1,4 @@
-import { AlbumService } from '@/app/services/album.service';
+import { AlbumService } from '@/app/services';
 import { ListTypePages } from '@/app/shared/interfaces';
 import { Component, OnInit } from '@angular/core';
 import { Album } from './interfaces/album';
