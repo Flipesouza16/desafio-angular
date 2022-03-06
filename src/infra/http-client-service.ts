@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { HttpGetClient, HttpParams, HttpResponse } from "@/data/protocols/http";
 import { environment } from "@/environments/environment";
 
@@ -7,9 +7,6 @@ import { environment } from "@/environments/environment";
   providedIn: "root",
 })
 export class HttpClientService implements HttpGetClient<any, any> {
-  private httpOptions = {
-    headers: new HttpHeaders({ "Content-Type": "application/json" }),
-  };
 
   constructor(private http: HttpClient) {}
 
