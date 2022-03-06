@@ -25,9 +25,9 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-toolbar>
-    <mat-form-field appearance="fill">
+    <mat-form-field class="form-field" appearance="fill">
       <mat-label>{{ titlePage }}</mat-label>
-      <input matInput placeholder="Ex. Pizza" />
+      <input [(ngModel)]="searchItem" (input)="searchOptions()" matInput />
     </mat-form-field>
   </mat-toolbar>
 </header>

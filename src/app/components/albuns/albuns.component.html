@@ -1,5 +1,11 @@
-<app-header [title-slug]="listTypePages.albuns"></app-header>
+<app-header
+  [title-slug]="listTypePages.albuns"
+  (search)="searchedItem($event)"
+></app-header>
 
 <main>
-  <app-list-items [page-slug]="listTypePages.albuns" [items]="albuns"></app-list-items>
+  <app-list-items
+    [page-slug]="listTypePages.albuns"
+    [items]="albuns"
+  ></app-list-items>
 </main>

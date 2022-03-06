@@ -1,5 +1,11 @@
-<app-header [title-slug]="listTypePages.postagens"></app-header>
+<app-header
+  [title-slug]="listTypePages.postagens"
+  (search)="searchedItem($event)"
+></app-header>
 
 <main>
-  <app-list-items [page-slug]="listTypePages.postagens" [items]="posts"></app-list-items>
+  <app-list-items
+    [page-slug]="listTypePages.postagens"
+    [items]="posts"
+  ></app-list-items>
 </main>

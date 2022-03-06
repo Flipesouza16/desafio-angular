@@ -1,5 +1,11 @@
-<app-header [title-slug]="listTypePages.todos"></app-header>
+<app-header
+  [title-slug]="listTypePages.todos"
+  (search)="searchedItem($event)"
+></app-header>
 
 <main>
-  <app-list-items [items]="todos" [page-slug]="listTypePages.todos"></app-list-items>
+  <app-list-items
+    [items]="todos"
+    [page-slug]="listTypePages.todos"
+  ></app-list-items>
 </main>

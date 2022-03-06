@@ -12,6 +12,7 @@ import { MatIconModule, MatListModule, MatToolbarModule } from '@angular/materia
 import { ComponentsModule } from './shared/components/components.module';
 import { AlbunsComponent } from './components/albuns/albuns.component';
 import { TodosComponent } from './components/todos/todos.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { TodosComponent } from './components/todos/todos.component';
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    ComponentsModule
+    ComponentsModule,
+    FormsModule,
   ],
   providers: [HttpClientService, HttpClient],
   bootstrap: [AppComponent]
