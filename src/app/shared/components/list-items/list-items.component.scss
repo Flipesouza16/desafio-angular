@@ -1,5 +1,5 @@
 .list-item {
-  margin-top: 30px;
+  margin-top: 15px;
 
   .spinner {
     width: 100%;
@@ -16,6 +16,11 @@
     padding: 10px;
     text-align: start;
     height: auto;
+
+    .id {
+      margin-right: 20px;
+      font-size: 20px;
+    }
 
     .item-info {
       display: flex;

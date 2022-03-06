@@ -2,9 +2,11 @@
   <mat-spinner class="spinner" *ngIf="!listItems?.length"></mat-spinner>
   <ng-template ngFor let-item [ngForOf]="listItems">
     <mat-list-item class="item">
+      <div class="id"> #{{ item.id }} </div>
       <div class="item-info">
-        <span class="item-title">{{ item?.title }}</span>
+        <span class="item-title">{{ item.title }}</span>
         <span class="item-body">{{ item?.body }}</span>
+        <span class="item-body">{{ item?.completed ? 'Completo' : 'Não completo' }}</span>
       </div>
     </mat-list-item>
   </ng-template>
