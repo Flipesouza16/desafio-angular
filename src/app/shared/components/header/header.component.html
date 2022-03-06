@@ -4,16 +4,12 @@
       <div class="title-menu-items">
         <span class="title-header">{{ titlePage }}</span>
         <div class="menu-itens" *ngIf="!isScreenSmall">
-          <button mat-stroked-button color="basic" (click)="selectPage(listTypePages.postagens)">
-            <mat-icon>local_post_office</mat-icon
-            >Postagens
-          </button>
-          <button mat-stroked-button color="basic" (click)="selectPage(listTypePages.albuns)">
-            <mat-icon>album</mat-icon>Albuns
-          </button>
-          <button mat-stroked-button color="basic" (click)="selectPage(listTypePages.todos)">
-            <mat-icon>schedule</mat-icon>TO-DOs
-          </button>
+          <ng-template ngFor let-page [ngForOf]="listPages">
+            <button mat-stroked-button color="basic" (click)="selectPage(page.slug)">
+              <mat-icon>local_post_office</mat-icon
+              >{{ page.name }}
+            </button>
+          </ng-template>
         </div>
         <mat-icon class="menu-itens-small" *ngIf="isScreenSmall" [matMenuTriggerFor]="menu">menu</mat-icon>
         <mat-menu #menu="matMenu">

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ListPagesModel, ListTypePages, PageModel } from '../../interfaces';
+import { ListPagesModel, PageModel } from '../../interfaces';
 import { listPages } from '../../utils';
 
 @Component({
@@ -12,7 +12,6 @@ export class HeaderComponent implements OnInit {
   @Input('title-slug') titleSlug: string;
   @Output('search') searchEvent = new EventEmitter<string>();
 
-  public listTypePages = ListTypePages;
   public pages: ListPagesModel = listPages;
   public titlePage: string;
   public screenWidth: number = document.documentElement.clientWidth;
