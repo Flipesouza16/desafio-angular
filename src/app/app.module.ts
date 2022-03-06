@@ -10,10 +10,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule, MatListModule, MatToolbarModule } from '@angular/material';
 import { ComponentsModule } from './shared/components/components.module';
+import { AlbunsComponent } from './components/albuns/albuns.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PostagensComponent
+    PostagensComponent,
+    AlbunsComponent
   ],
   imports: [
     BrowserModule,
